@@ -6,6 +6,7 @@ use App\Http\Requests\StorePageRequest;
 use App\Http\Requests\UpdatePageRequest;
 use App\Models\Page;
 
+
 class PageController extends Controller
 {
     /**
@@ -18,33 +19,15 @@ class PageController extends Controller
      {
          $this->middleware('auth');
          
-     } 
-
+     }   
 
 
     public function index()
     {
-
-		if (Auth::check()) {
-			$pages = Page::select('id','code','name','active')->orderBy('name')->paginate(10);
-			
-			return view('pages.index',compact('pages'));
-		}
-		else {
-			return view('auth/login');
-		}
-
-
-
-
-
+        $pages = Page::select('id','name','content','active')->orderBy('name')->paginate(10);
+        return view('pages.index',compact('pages'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
 
@@ -52,59 +35,45 @@ class PageController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePageRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StorePageRequest $request)
     {
-        //
+    
+        $page = new Page;
+				
+        $page->name   = $request->input('name');
+        $page->content   = $request->input('content');
+        $page->active = $request->input('active');
+    
+        $page->save();			
+        
+        return redirect('/page')->with('message','store');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Page $page)
     {
-        //
+        dd("show");
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Page $page)
     {
-        //
+            //dd($page);
+        	$page = Page::find($page->id);
+			return view('pages.edit',compact('page'));
+		
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePageRequest  $request
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(UpdatePageRequest $request, Page $page)
     {
-        //
+        dd("update");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Page $page)
     {
-        //
+        dd("destroy");
     }
 }
