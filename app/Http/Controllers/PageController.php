@@ -13,9 +13,31 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+         $this->middleware('auth');
+         
+     } 
+
+
+
     public function index()
     {
-        //
+
+		if (Auth::check()) {
+			$pages = Page::select('id','code','name','active')->orderBy('name')->paginate(10);
+			
+			return view('pages.index',compact('pages'));
+		}
+		else {
+			return view('auth/login');
+		}
+
+
+
+
+
     }
 
     /**
@@ -25,7 +47,9 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+
+    	return view('pages.create');
+
     }
 
     /**
