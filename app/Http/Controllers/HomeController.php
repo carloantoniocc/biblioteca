@@ -25,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $pages = Page::select('id','name','content','active')->orderBy('name')->paginate(10);
+        //$pages = Page::select('id','name','content','active')->orderBy('name')->paginate(10);
+        $pages = Page::where('active','=',1)->orderBy('name')->paginate(10);
         return view('home',compact('pages'));
     }
 }

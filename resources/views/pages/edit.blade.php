@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
 
 			<!--BreadCrumb-->
 			<ol class="breadcrumb">
@@ -38,12 +38,13 @@
                         <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                             <label for="content" class="col-md-4 control-label">content</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                             <!--<textarea id="content" type="text" class="form-control" name="content" rows="15" >{{$page->content}}</textarea> -->
 
                             <input id="x" value="{{$page->content}}" type="hidden" name="content">
-                            <trix-editor input="x"></trix-editor>
-                            <div class="trix-content">{{$page->content}}</div>                             
+                            <trix-editor  input="x"></trix-editor>
+                            
+                                                     
 
                                 @if ($errors->has('content'))
                                     <span class="help-block">

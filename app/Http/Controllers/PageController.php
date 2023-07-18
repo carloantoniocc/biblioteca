@@ -59,16 +59,19 @@ class PageController extends Controller
 
     public function edit(Page $page)
     {
-            //dd($page);
         	$page = Page::find($page->id);
 			return view('pages.edit',compact('page'));
-		
     }
 
 
     public function update(UpdatePageRequest $request, Page $page)
     {
-        dd("update");
+
+        $page->name = $request->name;
+        $page->content = $request->content;
+        $page->active = $request->active;
+        $page->save();
+        return redirect('/home');
     }
 
 

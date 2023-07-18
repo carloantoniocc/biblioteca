@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
         
         
                 <div class="panel-heading">New page</div>
@@ -55,6 +55,7 @@
 								</select>
                             </div>
                         </div>
+
 						<!--Boton Submit-->
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
