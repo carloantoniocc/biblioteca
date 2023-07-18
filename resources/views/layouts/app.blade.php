@@ -13,10 +13,13 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
 </head>
-<body>
+<body class="wysihtml5-supported">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -135,15 +138,15 @@
             </div>
 
 
-
-
         @endguest
 
 
-
-
-            @yield('content')
+        @yield('content')
         </main>
+
+
+
+
     </div>
 </body>
 </html>

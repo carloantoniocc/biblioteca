@@ -34,12 +34,16 @@
                             </div>
                         </div>
 
-						<!--Campo Nombre-->
+						<!--Campo content-->
                         <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                             <label for="content" class="col-md-4 control-label">content</label>
 
                             <div class="col-md-6">
-                                <textarea id="content" type="text" class="form-control" name="content" rows="15" >{{$page->content}}</textarea> 
+                            <!--<textarea id="content" type="text" class="form-control" name="content" rows="15" >{{$page->content}}</textarea> -->
+
+                            <input id="x" value="{{$page->content}}" type="hidden" name="content">
+                            <trix-editor input="x"></trix-editor>
+                            <div class="trix-content">{{$page->content}}</div>                             
 
                                 @if ($errors->has('content'))
                                     <span class="help-block">
@@ -49,6 +53,8 @@
 
                             </div>
                         </div>
+
+
 
 						<!--Lista Activo-->
 						<div class="form-group{{ $errors->has('active') ? ' has-error' : '' }}">

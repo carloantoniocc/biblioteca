@@ -25,20 +25,24 @@
                             </div>
                         </div>
 						<!--Campo content-->
+                        
                         <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-                            <label for="content" class="col-md-4 control-label">content</label>
+                            <label for="content" class="col-md-12 control-label">content</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 
-                                <textarea id="content" name="content" class="form-control" value="{{ old('content') }}" rows="15" placeholder="What's up?" required></textarea>
-                                <!-- <input id="content" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus> -->
+                                <input id="x" type="hidden" name="content">
+                                <trix-editor input="x"></trix-editor>                               
+                               
                                 @if ($errors->has('content'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('content') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div> 
+
+                        
 
 						<!--Lista Activo-->
 						<div class="form-group{{ $errors->has('active') ? ' has-error' : '' }}">
