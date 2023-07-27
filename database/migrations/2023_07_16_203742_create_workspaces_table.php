@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('workspaces', function (Blueprint $table) {
             $table->increments('id')->index();
             $table->string('name')->unique();
-            $table->text('content');
-            $table->integer('workspace_id')->unsigned();
             $table->boolean('active')->default(true);
             $table->timestamps();
-
-            $table->foreign('workspace_id')->references('id')->on('workspaces')->onUpdate('cascade')->onDelete('cascade');
-
         });
     }
 
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('workspaces');
     }
 };
