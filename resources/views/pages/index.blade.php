@@ -8,10 +8,10 @@
             <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">#dd</th>
                     <th scope="col">Name</th>
                     <th scope="col">Author</th>
-                    <th scope="col"></th>
+                    <th scope="col"></th>   
                     </tr>
                 </thead>
                 <tbody>
@@ -31,7 +31,7 @@
                     @endforeach
                 </tbody>
             </table>
-
+            {{$pages->links()}}
 
         </div>
     </div>
