@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id')->index();
             $table->string('name')->unique();
             $table->text('content');
-            $table->integer('workspace_id')->unsigned();
+            $table->integer('workspace_id')->unsigned()->default(1);
             $table->boolean('active')->default(true);
             $table->timestamps();
 
