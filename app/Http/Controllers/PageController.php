@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePageRequest;
 use App\Http\Requests\UpdatePageRequest;
 use App\Models\Page;
-
+use App\Models\Workspace;
 
 class PageController extends Controller
 {
@@ -30,8 +30,8 @@ class PageController extends Controller
 
     public function create()
     {
-
-    	return view('pages.create');
+        $workspaces = Workspace::where('active','=',1)->orderBy('name')->get();
+    	return view('pages.create',compact('workspaces'));
 
     }
 
@@ -42,6 +42,7 @@ class PageController extends Controller
 				
         $page->name   = $request->input('name');
         $page->content   = $request->input('content');
+        $page->workspace_id = $request->input('workspace');
         $page->active = $request->input('active');
     
         $page->save();			
@@ -60,7 +61,8 @@ class PageController extends Controller
     public function edit(Page $page)
     {
         	$page = Page::find($page->id);
-			return view('pages.edit',compact('page'));
+            $workspaces = Workspace::where('active','=',1)->orderBy('name')->get();
+			return view('pages.edit',compact('page','workspaces'));
     }
 
 

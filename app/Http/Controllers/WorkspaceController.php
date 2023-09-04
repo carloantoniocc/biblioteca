@@ -13,9 +13,17 @@ class WorkspaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+     public function __construct()
+     {
+         $this->middleware('auth');
+         
+     }   
+
+     public function index()
     {
-        //
+        $workspaces = Workspace::select('id','name','active')->orderBy('name')->paginate(10);
+        return view('workspaces.index',compact('workspaces'));
     }
 
     /**
@@ -26,6 +34,7 @@ class WorkspaceController extends Controller
     public function create()
     {
         //
+        return view('workspaces.create');
     }
 
     /**
@@ -36,7 +45,15 @@ class WorkspaceController extends Controller
      */
     public function store(StoreWorkspaceRequest $request)
     {
-        //
+        //dd('aqui');
+        $workspace = new Workspace;
+				
+        $workspace->name   = $request->input('name');
+        $workspace->active = $request->input('active');
+    
+        $workspace->save();			
+        
+        return redirect('/workspaces')->with('message','store');
     }
 
     /**
@@ -83,4 +100,6 @@ class WorkspaceController extends Controller
     {
         //
     }
+
+
 }

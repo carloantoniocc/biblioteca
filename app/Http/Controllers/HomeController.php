@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\Models\Page;
+use App\Models\Workspace;
+
 
 class HomeController extends Controller
 {
@@ -27,6 +27,7 @@ class HomeController extends Controller
     {
         //$pages = Page::select('id','name','content','active')->orderBy('name')->paginate(10);
         $pages = Page::where('active','=',1)->orderBy('name')->paginate(25);
-        return view('home',compact('pages'));
+        $workspaces = Workspace::where('active','=',1)->orderBy('name')->paginate(25);
+        return view('home',compact('pages','workspaces'));
     }
 }

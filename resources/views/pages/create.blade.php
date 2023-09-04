@@ -42,7 +42,19 @@
                             </div>
                         </div> 
 
-                        
+                        <!--Campo workspace_id-->
+						<div class="form-group{{ $errors->has('workspace') ? ' has-error' : '' }}">
+                            <label for="workspace" class="col-md-4 control-label">workspace</label>
+
+                            <div class="col-md-6">
+								<select id="active" class="form-control" name="workspace" required>
+                                @foreach($workspaces as $workspace)
+									<option value="{{ $workspace->id }}" selected>{{ $workspace->name }}</option>
+                                @endforeach    
+								</select>
+                            </div>
+                        </div>
+
 
 						<!--Lista Activo-->
 						<div class="form-group{{ $errors->has('active') ? ' has-error' : '' }}">
