@@ -80,69 +80,6 @@
 </div>
 
 
-
-<!--
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-
-        <aside>
-
-        <table class="table">
-                <thead>
-                    <tr>
-                    <th scope="col">Espacios</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($pages as $page)
-                    <tr>
-                    <th scope="row">1</th>
-                    <td><a href="{{ URL::to('page/' . $page->id . '/edit') }}">{{ $page->name }}</a></td>
-                    </tr>
-                    @endforeach
-                </tbody>
-        </table>
-
-
-
-        </aside>
-        <article>
-        <table class="table">
-                <thead>
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Author</th>
-                    <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($pages as $page)
-                    <tr>
-                    <th scope="row">1</th>
-                    <td><a href="{{ URL::to('page/' . $page->id . '/edit') }}">{{ $page->name }}</a></td>
-                    <td></td>
-                    <td>
-                        @if( $page->active == 1 )
-                            Activo
-                        @else
-                            Inactivo
-                        @endif
-					</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-        </table>
-        {{$pages->links()}}
-        </article>
-        
-    </div>
-    </div>
-</div>
--->
-
 @endsection
 
 
