@@ -42,7 +42,7 @@ class PageController extends Controller
 				
         $page->name   = $request->input('name');
         $page->content   = $request->input('content');
-        $page->workspace_id = $request->input('workspace');
+        $page->workspace_id = $request->input('workspace_id');
         $page->active = $request->input('active');
     
         $page->save();			
@@ -62,16 +62,18 @@ class PageController extends Controller
     {
         	$page = Page::find($page->id);
             $workspaces = Workspace::where('active','=',1)->orderBy('name')->get();
+            //dd($workspaces);
 			return view('pages.edit',compact('page','workspaces'));
     }
 
 
     public function update(UpdatePageRequest $request, Page $page)
     {
-
+        //dd($request);
         $page->name = $request->name;
         $page->content = $request->content;
         $page->active = $request->active;
+        $page->workspace_id = $request->workspace_id;
         $page->save();
         return redirect('/home');
     }

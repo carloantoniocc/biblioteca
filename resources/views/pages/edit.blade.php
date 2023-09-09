@@ -57,16 +57,16 @@
 
 
 						<!--Lista Workspaces-->
-						<div class="form-group{{ $errors->has('workspace') ? ' has-error' : '' }}">
-                            <label for="workspace" class="col-md-4 control-label">workspacessss</label>
+						<div class="form-group{{ $errors->has('workspace_id') ? ' has-error' : '' }}">
+                            <label for="workspace_id" class="col-md-4 control-label">workspace</label>
 
                             <div class="col-md-6">
-								<select id="workspace" class="form-control" name="workspace" required>
+								<select id="workspace_id" class="form-control" name="workspace_id" required>
                                 @foreach($workspaces as $workspace)
-                                    @if( $workspace->workspace == $page->workspace )
-									    <option value="{{ $workspace->workspace }}" selected>{{ $workspace->name }}</option>
+                                    @if( $workspace->id == $page->workspace_id )
+									    <option value="{{ $workspace->id }}" selected>{{ $workspace->name }}</option>
                                     @else
-									    <option value="{{ $workspace->workspace }}">{{ $workspace->name }}</option>
+									    <option value="{{ $workspace->id }}">{{ $workspace->name }}</option>
                                     @endif    
                                 @endforeach
 

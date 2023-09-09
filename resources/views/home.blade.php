@@ -14,7 +14,7 @@
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                         @foreach($workspaces as $workspace)
                         <li class="w-100">
-                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">{{ $workspace->name }}</span>1</a>
+                            <a class="nav-link px-0" href="{{ URL::to('/home') }}"> <span class="d-none d-sm-inline">{{ $workspace->name }}</span>1</a>
                         </li>
                         @endforeach
                     </ul>

@@ -162,10 +162,57 @@ This script, located at ${bold}https://deb.nodesource.com/setup${normal}, used t
     fi
 }
 
+print_bold_deprecation() {
+    title="$1"
+    text="$2"
+
+    echo
+    echo "${bold}${red}================================================================================${normal}"
+    echo "${bold}${red}▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓${normal}"
+    echo "${bold}${red}================================================================================${normal}"
+    echo
+    echo -e "  ${bold}${yellow}${title}${normal}"
+    echo
+    echo -en "  ${text}"
+    echo
+    echo "${bold}${red}================================================================================${normal}"
+    echo "${bold}${red}▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓${normal}"
+    echo "${bold}${red}================================================================================${normal}"
+}
+
+
+repo_deprecation_warning() {
+  print_bold_deprecation \
+"                         ${underline}SCRIPT DEPRECATION WARNING${normal}                    " "\
+
+  This script, located at ${bold}https://deb.nodesource.com/setup_X${normal}, used to
+  install Node.js is deprecated now and will eventually be made inactive.
+
+  Please visit the NodeSource ${bold}distributions${normal} Github and follow the
+  instructions to migrate your repo.
+  ${underline}${green}${bold}https://github.com/nodesource/distributions${normal}
+
+  The ${bold}NodeSource${normal} Node.js Linux distributions GitHub repository contains
+  information about which versions of Node.js and which Linux distributions
+  are supported and how to install it.
+  ${underline}${green}${bold}https://github.com/nodesource/distributions${normal}
+
+
+                          ${underline}${bold}${yellow}SCRIPT DEPRECATION WARNING${normal}
+"
+
+        echo
+        echo "${cyan}${bold}TO AVOID THIS WAIT MIGRATE THE SCRIPT${normal}"
+        echo "Continuing in 60 seconds (press Ctrl-C to abort) ..."
+        echo
+        sleep 60
+}
+
 setup() {
 
 script_deprecation_warning
 node_deprecation_warning
+repo_deprecation_warning
 
 print_status "Installing the NodeSource ${NODENAME} repo..."
 

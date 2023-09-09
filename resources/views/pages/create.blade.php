@@ -43,11 +43,11 @@
                         </div> 
 
                         <!--Campo workspace_id-->
-						<div class="form-group{{ $errors->has('workspace') ? ' has-error' : '' }}">
-                            <label for="workspace" class="col-md-4 control-label">workspace</label>
+						<div class="form-group{{ $errors->has('workspace_id') ? ' has-error' : '' }}">
+                            <label for="workspace_id" class="col-md-4 control-label">workspace</label>
 
                             <div class="col-md-6">
-								<select id="active" class="form-control" name="workspace" required>
+								<select id="active" class="form-control" name="workspace_id" required>
                                 @foreach($workspaces as $workspace)
 									<option value="{{ $workspace->id }}" selected>{{ $workspace->name }}</option>
                                 @endforeach    
