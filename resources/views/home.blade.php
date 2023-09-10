@@ -33,12 +33,12 @@
 					<div class="row">
 						<!-- Boton Crear Nueva Establecimiento -->
 						<div class="col-md-6">
-							<a class="btn btn-sm btn-primary" href="{{ URL::to('Employe/create') }}">Crear Libro</a>
+							<a class="btn btn-sm btn-primary" href="{{ URL::to('page/create') }}">Crear Libro</a>
 						</div>
 
 
                         <p>
-                            <a class="btn btn-sm btn-primary" href="{{ URL::to('buscarfuncionario/') }}">Buscar Libro</a>
+                            <a class="btn btn-sm btn-primary" href="{{ URL::to('buscarLibro/') }}">Buscar Libro</a>
                         </p>						
 						
 					</div>
