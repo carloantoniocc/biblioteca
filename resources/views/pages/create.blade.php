@@ -6,7 +6,7 @@
         <div class="col-md-10">
         
         
-                <div class="panel-heading">New page</div>
+                <div class="panel-heading">New pages</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ URL::to('page') }}">
                         {{ csrf_field() }}
@@ -15,11 +15,11 @@
                             <label for="name" class="col-md-4 control-label">name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}"  autofocus>
 
                                 @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                    <span class="help-block text-xs text-red">
+                                        {{ $errors->first('name') }}
                                     </span>
                                 @endif
                             </div>

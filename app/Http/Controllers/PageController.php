@@ -37,9 +37,13 @@ class PageController extends Controller
 
     public function store(StorePageRequest $request)
     {
-    
+        
+        $request->validate([
+            'name' => 'required|unique:pages,name',
+            'content' => 'required'
+        ]);
+        
         $page = new Page;
-				
         $page->name   = $request->input('name');
         $page->content   = $request->input('content');
         $page->workspace_id = $request->input('workspace_id');
@@ -60,16 +64,22 @@ class PageController extends Controller
 
     public function edit(Page $page)
     {
-        	$page = Page::find($page->id);
+        	//dd($page->workspace->name);
             $workspaces = Workspace::where('active','=',1)->orderBy('name')->get();
-            //dd($workspaces);
-			return view('pages.edit',compact('page','workspaces'));
+            return view('pages.edit',compact('page','workspaces'));
     }
 
 
     public function update(UpdatePageRequest $request, Page $page)
     {
-        //dd($request);
+        
+        $request->validate([
+            'name' => 'required|unique:pages,name',
+            'content' => 'required'
+        ]);
+
+
+        //dd($page->workspace->name);
         $page->name = $request->name;
         $page->content = $request->content;
         $page->active = $request->active;

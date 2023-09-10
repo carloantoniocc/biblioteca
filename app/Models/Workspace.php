@@ -11,7 +11,7 @@ class Workspace extends Model
 
     public function Pages()
     {
-        return $this->hasMany('App\Page');
+        return $this->hasMany(Workspace::class);
     }
 
 }
