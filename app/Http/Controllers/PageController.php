@@ -74,7 +74,7 @@ class PageController extends Controller
     {
         
         $request->validate([
-            'name' => 'required|unique:pages,name',
+            'name' => 'required',
             'content' => 'required'
         ]);
 
