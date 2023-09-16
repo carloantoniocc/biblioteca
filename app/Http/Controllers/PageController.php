@@ -6,6 +6,7 @@ use App\Http\Requests\StorePageRequest;
 use App\Http\Requests\UpdatePageRequest;
 use App\Models\Page;
 use App\Models\Workspace;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -24,8 +25,13 @@ class PageController extends Controller
 
     public function index()
     {
-        $pages = Page::select('id','name','content','active')->orderBy('name')->paginate(10);
-        return view('pages.index',compact('pages'));
+        //$pages = Page::select('id','name','content','active')->orderBy('created_at')->paginate(10);
+        $pages = DB::table('pages')
+                ->orderByRaw('created_at DESC')
+                ->paginate(50);
+        $workspaces = Workspace::where('active','=',1)->orderBy('name')->get();
+        
+        return view('home',compact('pages','workspaces'));
     }
 
     public function create()
