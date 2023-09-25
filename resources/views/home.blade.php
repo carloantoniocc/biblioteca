@@ -37,47 +37,12 @@
     </div>
 
     <div class="col-md-8" >
-    <div class="row flex-nowrap" >
-               
-        <div class="row">						
-						<!-- Filtro de Numero de Documento -->
-						<form class="form-horizontal" role="form" method="GET" action="{{ URL::to('home') }}">
-							<!-- Filtro de Tipo de Documento -->
-								<div class="input-group">
-                                    <span class="input-group-btn margin-left">
-                                        <a class="btn btn-sm btn-primary" href="{{ URL::to('page/create') }}">Crear Documento</a>
-									</span>
-                                    <select id="searchTipo" class="form-control input-sm " name="searchTipo" style="width:40%">
-										<option value="">Buscar por Tipo de Documento</option>
-										@foreach($workspaces as $workspace)
-											<option value="{{ $workspace->id }}">{{ $workspace->name }}</option>
-										@endforeach
-									</select>
-									<span class="input-group-btn ">
-										<button class="btn btn-default btn-sm" type="submit">Ir</button>
-									</span>
-								</div>
-						</form>		
-		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
         <table class="table table-bordered">
         <thead>
             <tr>
                 <th scope="col">#dd</th>
                 <th scope="col">Name</th>
-                <th scope="col">Tipo</th>
+                <th scope="col">Author</th>
                 <th scope="col">Action</th>   
             </tr>
         </thead>
@@ -110,6 +75,48 @@
     </div>
 </div>
 </div>
+
+    <div class="row">
+        <div class="col-md-12 col-md-offset-0">
+
+
+            <ol class="breadcrumb">
+              <li><a href="{{ URL::to('/home') }}" >Home</a></li>
+              <li class="active">Listado de Libros </li>
+            </ol>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Listado de Libros</div>
+                <div class="panel-body">
+                    {{ csrf_field() }} 
+					<div class="row">
+						<!-- Boton Crear Nueva Establecimiento -->
+						<div class="col-md-6">
+							<a class="btn btn-sm btn-primary" href="{{ URL::to('page/create') }}">Crear Libro</a>
+						</div>
+
+
+                        <p>
+                            <a class="btn btn-sm btn-primary" href="{{ URL::to('buscarLibro/') }}">Buscar Libro</a>
+                        </p>						
+						
+					</div>
+					</br>
+					<!-- Lista de Establecimientos -->		
+					<div class="row">
+						<div class="col-md-12">
+
+							
+						</div>
+					</div>
+					<!-- FIN Lista de Establecimientos -->			
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 @endsection
 

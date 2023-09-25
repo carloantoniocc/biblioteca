@@ -111,11 +111,17 @@
 
         <main class="py-4">
  
+        <!-- Authentication Links         
+        @guest
+            <p>es invitado</p>
+        @else
+            <p>no es invitado</p>
+        @endguest
+        -->    
+
         @yield('content')
 
         </main> 
     </div>
-    
-
 </body>
 </html>
