@@ -39,6 +39,30 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
+                        <li class="dropdown show" role="menu">
+                            <a href="#" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true aria-expanded="false"> Salud <span class="caret"></span></a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ URL::to('garantias/oficinaPartes') }}"> Dashboard </a>
+                                    </li>                         
+                                    <div class="dropdown-divider"></div>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ URL::to('garantias/oficinaPartes') }}"> Peso </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a class="dropdown-item" href="{{ URL::to('garantias/oficinaPartes') }}"> Agua </a>
+                                    </li>                                          
+
+                                    <li>
+                                        <a class="dropdown-item" href="{{ URL::to('garantias/oficinaPartes') }}"> Carrera </a>
+                                    </li>                                          
+
+                                </ul>
+                        </li>
+
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -57,6 +81,9 @@
                                 </li>
                             @endif
                         @else
+                            
+
+                        
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -88,5 +115,7 @@
 
         </main> 
     </div>
+    
+
 </body>
 </html>
